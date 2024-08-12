@@ -128,14 +128,21 @@ footer a{
     background: white var(--switch-bg) no-repeat center;
     position: absolute;
     top: 50%;
-    left: 0;
     z-index: 1;
     transform: translateY(-50%);
     cursor: pointer;
+    animation: slide-off .3s;
+    transition: outline .3s ease-out;
 }
 .light .swicth button {
-    right: 0;
-    left: initial;
+
+    animation: slide-on .3s forwards;
+    /* right: 0;
+    left: initial; */
+
+}
+.swicth button:hover{
+    outline: 8px solid var(--highlight-color);
 }
 .swicth span{
     display: block;
@@ -154,5 +161,23 @@ footer a{
     }
     .light{
         --bg-url: url(./images/bg-desktop-light.jpg);
+    }
+}
+
+@keyframes slide-on{
+    from{
+        left: 0;
+    }
+    to{
+        left: 50%;
+    }
+}
+
+@keyframes slide-off{
+    from{
+        left: 50%;
+    }
+    to{
+        left: 0;
     }
 }
